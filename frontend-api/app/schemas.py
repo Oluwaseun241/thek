@@ -5,6 +5,7 @@ class UserCreate(BaseModel):
     email: str
     firstname: str
     lastname: str
+    password: str
 
 class BookBase(BaseModel):
     title: str
