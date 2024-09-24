@@ -6,7 +6,7 @@ from fastapi import HTTPException, status
 from datetime import datetime, timedelta
     
 # Own imports
-from . import models, schemas
+import models, schemas
 
 def create_user(db: Session, user: schemas.UserCreate):
     # Check if user exist

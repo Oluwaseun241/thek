@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 # Own Import
-from . import schemas, services, database
+import schemas, services, database
 
 router = APIRouter()
 
@@ -25,7 +25,7 @@ def get_book(book_id: int, db: Session = Depends(database.get_db)):
     return book
 
 @router.get("/books/filter", response_model=list[schemas.BookResponse])
-def filter_books(publisher: str = None, category: str = None, db: Session = Depends(database.get_db)):
+def filter_books(publisher: str, category: str, db: Session = Depends(database.get_db)):
     return services.filter_books(db, publisher, category)
 
 @router.post("/books/{book_id}/borrow", response_model=schemas.BorrowResponse)

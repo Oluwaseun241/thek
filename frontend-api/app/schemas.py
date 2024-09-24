@@ -18,7 +18,7 @@ class BookResponse(BookBase):
     available: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class BorrowRequest(BaseModel):
     days: int
@@ -29,4 +29,4 @@ class BorrowResponse(BaseModel):
     return_by: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
