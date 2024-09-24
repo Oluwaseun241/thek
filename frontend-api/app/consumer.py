@@ -21,7 +21,7 @@ def callback(ch, method, body):
     try:
         if action == "Book added":
             # Fetch book details from the Backend API
-            backend_api_url = f"http://localhost:8081/books/{book_id}"
+            backend_api_url = f"http://localhost:8001/books/{book_id}"
             response = requests.get(backend_api_url)
 
             if response.status_code == 200:
