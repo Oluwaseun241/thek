@@ -43,7 +43,11 @@ def borrow_book(db:Session, user_id: int, book_id:int, days:int):
     book = get_book_by_id(db,book_id)
     if book and book.availabe:
         book.availabe = False
-        borrow = models.Borrow(user_id=user_id, book_id=book_id, return_by=datetime.utcnow() + timedelta(days=days))
+        borrow = models.Borrow(
+            user_id=user_id,
+            book_id=book_id,
+            return_by=datetime.utcnow() + timedelta(days=days)
+        )
         db.add(borrow)
         db.commit()
         return borrow

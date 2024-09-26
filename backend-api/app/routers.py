@@ -1,6 +1,9 @@
+# FastApi Imports
 from fastapi import APIRouter, HTTPException
+
+# Own Imports
 import services, schemas, database, messaging
-from models import Book, User
+from models import Book
 
 router = APIRouter()
 

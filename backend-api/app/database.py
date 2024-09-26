@@ -8,3 +8,10 @@ db = client.backend_db
 books_collection = db.books
 users_collection = db.users
 
+def get_db():
+    db = client.backend_db
+    try:
+        yield db
+    finally:
+        db.close()
+

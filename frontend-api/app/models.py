@@ -31,6 +31,6 @@ class Borrow(Base):
     book_id = Column(Integer, ForeignKey('books.id'), nullable=False)
     borrowed_on = Column(DateTime, default=datetime.utcnow)
     return_by = Column(DateTime)
-    user = relationship('User', back_populates='borrowed_books') 
-    book = relationship('Book')
+    user = relationship('User', back_populates='borrows') 
+    book = relationship('Book', back_populates='borrrws')
 
